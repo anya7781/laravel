@@ -41,6 +41,7 @@
 	a
 	{
 		color: #c94663;
+		text-decoration: none;
 	}
 
 	strong, b
@@ -929,4 +930,9 @@
 	#sidePanel
 	{
 		background: #364050 url('images/bg01.png');
+	}
+
+	.account{
+		margin-top: 30px;
+		text-align: center;
 	}
