@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::any('account', function () {
+    return view('account/user');
+});
+
+Route::any('admin', function () {
+    return view('account/user_list');
+});

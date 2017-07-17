@@ -43,7 +43,7 @@
 
 
         <div class = "account">
-            <a href = "#">
+            <a href = "account">
                 <img src =  "{{ asset('images/account1.png') }}" width="40" height="40" />
                 <p>Personal account</p>
             </a>

@@ -932,7 +932,34 @@
 		background: #364050 url('images/bg01.png');
 	}
 
+
+	/***********************************  My ***********************************/
 	.account{
 		margin-top: 30px;
 		text-align: center;
+	}
+
+	.my_articles{
+		font-size: 25px;
+	}
+
+	.user_list{
+		display: flex;
+		flex-direcrion:row;
+		justify-content: space-between;
+	}
+
+	.delete_button{
+		background-color: #9d221a;
+		color: #ffffff;
+		border-radius: 3px;
+		padding: 6px;
+	}
+
+	.make_admin{
+		background-color: #259d10;
+		color: #ffffff;
+		border-radius: 3px;
+		padding: 6px;
+		margin-right: 15px;
 	}
