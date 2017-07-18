@@ -11,11 +11,10 @@
 |
 */
 
-/*Route::any('/', function () {
+Route::any('/', function () {
     return view('welcome');
-});*/
+});
 
-Route::any('/', 'AccountController@index');
 
 Route::any('account', function () {
     return view('account/user');
@@ -25,9 +24,11 @@ Route::any('admin', function () {
     return view('account/admin');
 });
 
-Route::get('users', function () {
+/*Route::get('users', function () {
     return view('account/user_list');
-});
+});*/
+
+Route::any('users', 'AccountController@user_list');
 
 Route::get('my_articles', function () {
     return view('account/my_articles');

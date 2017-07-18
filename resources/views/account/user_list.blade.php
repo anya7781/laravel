@@ -5,26 +5,21 @@
 <!-- Content -->
     <div id="content">
 
-        <article class="box post post-excerpt">
-            <div class = "user_list">
-                <p> user1 </p>
-                <div>
-                    <button class = "make_admin">Make admin</button>
-                    <button class = "delete_button">Delete</button>
-                </div>
-            </div>
-        </article>
+        @foreach($users as $user)
 
-        <!-- Post -->
-        <article class="box post post-excerpt">
-            <div class = "user_list">
-                <p> user1 </p>
-                <div>
-                    <button class = "make_admin">Make admin</button>
-                    <button class = "delete_button">Delete</button>
+            <article class="box post post-excerpt">
+                <div class = "user_list">
+                    <p> {{  $user->login  }} </p>
+                    <div>
+                        <button class = "make_admin">Make admin</button>
+                        <button class = "delete_button">Delete</button>
+                    </div>
                 </div>
-            </div>
-        </article>
+            </article>
+
+        @endforeach
+
+
 
     </div>
 

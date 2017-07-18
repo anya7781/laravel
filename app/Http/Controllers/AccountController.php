@@ -7,12 +7,10 @@ use App\User;
 
 class AccountController extends Controller
 {
-    public function index()
+    public function user_list(User $user)
     {
-        $users = User::all();
-       foreach ($users as $user){
-           echo $user->login;
-       }
+        $users = $user->getUsers();
+        return view('account/user_list', ['users' => $users]);
 
     }
 }
