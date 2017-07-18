@@ -1,4 +1,4 @@
-@extends('layouts.site')
+@extends('layouts.admin_account')
 
 @section('content')
 
@@ -18,27 +18,22 @@
                     <p>A free, fully responsive HTML5 site template by HTML5 UP</p>
                 </header>
                 <div class="info">
-                    <!--
-                        Note: The date should be formatted exactly as it's shown below. In particular, the
-                        "least significant" characters of the month should be encapsulated in a <span>
-                        element to denote what gets dropped in 1200px mode (eg. the "uary" in "January").
-                        Oh, and if you don't need a date for a particular page or post you can simply delete
-                        the entire "date" element.
-
-                    -->
                     <span class="date"><span class="month">Jul<span>y</span></span> <span class="day">14</span><span class="year">, 2014</span></span>
                     <!--
                         Note: You can change the number of list items in "stats" to whatever you want.
                     -->
                     <ul class="stats">
                         <li><a href="#" class="icon fa-comment">16</a></li>
+                        <li><a href="#" class="but">Public</a></li>
+                        <li><a href="#" class="but edit">Edit</a></li>
+                        <li><a href="#" class="but delete">Delete</a></li>
                     </ul>
                 </div>
-                <a href="#" class="image featured"><img src="{{asset('images/pic01.jpg')}}" alt="" /></a>o
+                <a href="#" class="image featured"><img src="{{asset('images/pic01.jpg')}}" alt="" /></a>
                 <p>
-                    Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
-                    or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
-                    <a href="http://html5up.net">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/n33co">Twitter</a> for new releases and updates.
+                    <strong>Hello!</strong> You're looking at <strong>Striped</strong>, a fully responsive HTML5 site template designed by <a href="http://n33.co">AJ</a>
+                    for <a href="http://html5up.net">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
+                    repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
                 </p>
             </article>
 
@@ -52,6 +47,9 @@
                     <span class="date"><span class="month">Jul<span>y</span></span> <span class="day">8</span><span class="year">, 2014</span></span>
                     <ul class="stats">
                         <li><a href="#" class="icon fa-comment">16</a></li>
+                        <li><a href="#" class="but">Public</a></li>
+                        <li><a href="#" class="but edit">Edit</a></li>
+                        <li><a href="#" class="but delete">Delete</a></li>
                     </ul>
                 </div>
                 <a href="#" class="image featured"><img src = "{{asset('images/pic02.jpg')}}" alt="" /></a>

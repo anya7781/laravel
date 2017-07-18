@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::any('/', function () {
     return view('welcome');
 });
 
@@ -20,5 +20,21 @@ Route::any('account', function () {
 });
 
 Route::any('admin', function () {
+    return view('account/admin');
+});
+
+Route::get('users', function () {
     return view('account/user_list');
+});
+
+Route::get('my_articles', function () {
+    return view('account/my_articles');
+});
+
+Route::get('new_articles', function () {
+    return view('account/new_articles');
+});
+
+Route::get('new', function () {
+    return view('account/new');
 });

@@ -39,7 +39,7 @@
     <div id="sidebar">
 
         <!-- Logo -->
-        <h1 id="logo"><a href="#">LOGO</a></h1>
+        <h1 class="logo"><a href="#">LOGO</a></h1>
 
 
         <div class = "account">

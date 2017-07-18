@@ -39,7 +39,7 @@
     <div id="sidebar">
 
         <!-- Logo -->
-        <p class="new"><a href="#"> + New article</a></p>
+        <p class="new"><a href="/new"> + New article</a></p>
 
 
         <div class = "account">
@@ -54,7 +54,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="/" class = "my_articles"> Main page </a></li>
-                <li><a href="#" class = "my_articles"> My acticles </a></li>
+                <li><a href="/my_articles" class = "my_articles"> My acticles </a></li>
             </ul>
         </nav>
 
