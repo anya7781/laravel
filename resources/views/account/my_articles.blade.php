@@ -4,6 +4,13 @@
 
 <!-- Content -->
     <div id="content">
+
+        @if (isset($message))
+
+            <p class="alert-danger"> Your article has been sent for checking. </p>
+
+            @endif
+
         <div class="inner">
 
             <!-- Post -->

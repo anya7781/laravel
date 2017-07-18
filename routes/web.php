@@ -24,11 +24,9 @@ Route::any('admin', function () {
     return view('account/admin');
 });
 
-/*Route::get('users', function () {
-    return view('account/user_list');
-});*/
-
 Route::any('users', 'AccountController@user_list');
+
+Route::post('new_article', 'AccountController@new_article');
 
 Route::get('my_articles', function () {
     return view('account/my_articles');
@@ -38,6 +36,4 @@ Route::get('new_articles', function () {
     return view('account/new_articles');
 });
 
-Route::get('new', function () {
-    return view('account/new');
-});
+Route::get('new', 'AccountController@get_categ');

@@ -934,6 +934,10 @@
 
 
 	/***********************************  My ***********************************/
+	.category {
+		width: 200px!important;
+	}
+
 	.account{
 		margin-top: 30px;
 		text-align: center;
@@ -976,4 +980,9 @@
 		border: 1px solid black;
 		padding: 5px;
 		text-align: center;
+	}
+
+	.alert-danger{
+		color: #bf412d !important;
+		font-weight: bold!important;
 	}
