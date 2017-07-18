@@ -11,9 +11,11 @@
 |
 */
 
-Route::any('/', function () {
+/*Route::any('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::any('/', 'AccountController@index');
 
 Route::any('account', function () {
     return view('account/user');
