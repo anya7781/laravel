@@ -15,25 +15,22 @@ Route::any('/', function () {
     return view('welcome');
 });
 
+Route::any('exit', 'AccountController@out');
 
-Route::any('account', function () {
-    return view('account/user');
-});
-
-Route::any('admin', function () {
-    return view('account/admin');
-});
+Route::any('account', 'AccountController@enter');
 
 Route::any('users', 'AccountController@user_list');
 
 Route::post('new_article', 'AccountController@new_article');
 
-Route::get('my_articles', function () {
+/*Route::get('my_articles', function () {
     return view('account/my_articles');
-});
+});*/
+
+Route::get('my_articles', 'AccountController@myArticles');
 
 Route::get('new_articles', function () {
-    return view('account/new_articles');
+    return view('account/admin/new_articles');
 });
 
 Route::get('new', 'AccountController@get_categ');

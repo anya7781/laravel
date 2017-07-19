@@ -986,3 +986,15 @@
 		color: #bf412d !important;
 		font-weight: bold!important;
 	}
+
+	.profile{
+		width: 80%;
+		display: flex;
+		justify-content: space-between;
+		align-items:center;
+		flex-direcrion:column;
+	}
+
+	.profile__image{
+		border-radius: 20px;
+	}

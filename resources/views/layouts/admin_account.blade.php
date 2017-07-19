@@ -43,7 +43,7 @@
 
 
         <div class = "account">
-            <a href = "#">
+            <a href = "/exit">
                 <img src =  "{{ asset('images/exit.png') }}" width="40" height="40" />
                 <p>Log out</p>
             </a>
@@ -54,6 +54,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="/" class = "my_articles"> Main page </a></li>
+                <li><a href="/account" class = "my_articles"> My profile </a></li>
                 <li><a href="/my_articles" class = "my_articles"> My articles </a></li>
                 <li><a href="/new_articles" class = "my_articles"> New articles </a></li>
                 <li><a href="/users" class = "my_articles"> User list </a></li>

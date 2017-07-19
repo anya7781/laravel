@@ -9,15 +9,57 @@ use App\Category;
 
 class AccountController extends Controller
 {
+    public function out(){
+        User::deleteSession();
+        return redirect('/');
+    }
+
+    public function enter(User $user){
+        $role = 'user'; $id = 2;
+        User::makeSession($role, $id);
+
+        $role = User::checkSession();
+
+        $id = User::getId();
+
+
+        $user = $user->getUser($id);
+
+        if ($role == 'user')
+            return view('account/user/user', ['user' => $user]);
+        else if($role == 'admin')
+            return view('account/admin/admin', ['user' => $user]);
+        else return redirect('/');
+    }
+
+    public function myArticles(){
+        $role = User::checkSession();
+        if ($role == 'user')
+            return view('account/user/my_articles');
+        else if($role == 'admin')
+            return view('account/admin/my_articles');
+        else return redirect('/');
+    }
+
     public function user_list(User $user)
     {
         $users = $user->getUsers();
-        return view('account/user_list', ['users' => $users]);
+
+        if(User::checkSession() == 'admin')
+            return view('account/admin/user_list', ['users' => $users]);
+        else return redirect('/');
     }
 
     public function get_categ(Category $category){
         $category = $category->getCategories();
-        return view('account/new', ['categories' => $category]);
+
+        $role = User::checkSession();
+        if ($role == 'admin')
+            return view('account/admin/new', ['categories' => $category]);
+        else if ($role = 'user')
+            return view('account/user/new', ['categories' => $category]);
+        else
+            return redirect('/');
     }
 
     public function new_article(Request $request, Post $post)
@@ -45,6 +87,12 @@ class AccountController extends Controller
         $data = array('name' => $name, 'description' => $description, 'text' => $text, 'image' => $image, 'category' => $category);
         $post->addPost($data);
 
-        return view('account/my_articles', ['message' => true]);
+        $role = User::checkSession();
+        if ($role == 'admin')
+            return view('account/admin/my_articles', ['message' => true]);
+        else if ($role = 'user')
+            return view('account/user/my_articles', ['message' => true]);
+        else
+            return redirect('/');
     }
 }
