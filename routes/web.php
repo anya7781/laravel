@@ -23,10 +23,6 @@ Route::any('users', 'AccountController@user_list');
 
 Route::post('new_article', 'AccountController@new_article');
 
-/*Route::get('my_articles', function () {
-    return view('account/my_articles');
-});*/
-
 Route::get('my_articles', 'AccountController@myArticles');
 
 Route::get('new_articles', function () {
@@ -34,3 +30,7 @@ Route::get('new_articles', function () {
 });
 
 Route::get('new', 'AccountController@get_categ');
+
+Route::post('make-admin', 'AccountController@makeAdmin');
+
+Route::post('delete-user', 'AccountController@deleteUser');

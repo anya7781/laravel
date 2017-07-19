@@ -15,13 +15,11 @@ class AccountController extends Controller
     }
 
     public function enter(User $user){
-        $role = 'user'; $id = 2;
+        $role = 'admin'; $id = 2;
         User::makeSession($role, $id);
 
         $role = User::checkSession();
-
         $id = User::getId();
-
 
         $user = $user->getUser($id);
 
@@ -95,4 +93,17 @@ class AccountController extends Controller
         else
             return redirect('/');
     }
+
+    public function makeAdmin(Request $request, User $user){
+       $id = $request->input('id');
+       $user->makeAdmin($id);
+        return redirect('/users');
+    }
+
+    public function deleteUser(Request $request, User $user){
+        $id = $request->input('id');
+        $user->deleteUser($id);
+        return redirect('/users');
+    }
+
 }

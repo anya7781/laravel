@@ -11,8 +11,14 @@
                 <div class = "user_list">
                     <p> {{  $user->login  }} </p>
                     <div>
-                        <button class = "make_admin">Make admin</button>
-                        <button class = "delete_button">Delete</button>
+                        <form method="post">
+                            {{  csrf_field() }}
+                            @if($user->access_type == 'user')
+                                 <button class = "make_admin" formaction="make-admin">Make admin</button>
+                            @endif
+                            <button class = "delete_button" formaction="delete-user">Delete</button>
+                            <input name = "id" type="hidden" value="{{$user->id}}">
+                        </form>
                     </div>
                 </div>
             </article>

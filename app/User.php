@@ -33,4 +33,14 @@ class User extends Model
        return $_SESSION['id'];
     }
 
+    public function makeAdmin($id){
+        $user = $this->find($id);
+        $user->access_type = 'admin';
+        $user->save();
+    }
+
+    public function deleteUser($id){
+        $user = $this->find($id);
+        $user->delete();
+    }
 }
