@@ -14,22 +14,45 @@
 
                 @foreach($posts as $post)
 
-                    <!-- Post -->
+                <!-- Post -->
+                    <?php
+                    $value = $post->Date;
+                    $pieces = explode("-", $value);
+                    $year = $pieces[0];
+                    $month = $pieces[1];
+                    $pieces = explode(" ", $pieces[2]);
+                    $day = $pieces[0];
+
+                    switch ($month){
+                        case '01': {$year = "Jan"; break;}
+                        case '02': {$year = "Feb"; break;}
+                        case '03': {$year = "Mar"; break;}
+                        case '04': {$year = "Apr"; break;}
+                        case '05': {$year = "May"; break;}
+                        case '06': {$year = "Jun"; break;}
+                        case '07': {$year = "Jul"; break;}
+                        case '08': {$year = "Aug"; break;}
+                        case '09': {$year = "Sep"; break;}
+                        case '10': {$year = "Oct"; break;}
+                        case '11': {$year = "Nov"; break;}
+                        case '12': {$year = "Dec"; break;}
+                    }
+
+                    ?>
+
                     <article class="box post post-excerpt">
                         <header>
                             <h2><a href="#">{{ $post->Name }}</a></h2>
                             <p>{{ $post->description }}</p>
                         </header>
                         <div class="info">
-                            <span class="date"><span class="month">Jul<span>y</span></span> <span class="day">14</span><span class="year">, 2014</span></span>
+                            <span class="date"><span class="month">{{$year}}</span> <span class="day">{{$day}}</span><span class="year">, {{$year}}</span></span>
 
                             <form method="post">
                                 <ul class="stats">
                                     {{  csrf_field() }}
                                     <input type = "hidden" value = "{{  $post->id }}" name="id">
-                                    <li><button class="but" formaction="/public">Public</button></li>
-                                    <li><button formaction="/edit" class="but edit">Edit</button></li>
-                                    <li><button formaction="/block" class="but delete">Delete</button></li>
+                                    <li><a href="#" class="icon fa-comment">16</a></li>
                                 </ul>
                             </form>
 

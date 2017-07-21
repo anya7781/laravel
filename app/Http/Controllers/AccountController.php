@@ -17,7 +17,7 @@ class AccountController extends Controller
     }
 
     public function enter(User $user){
-        $role = 'admin'; $id = 2;
+        $role = 'user'; $id = 2;
         User::makeSession($role, $id);
 
         $role = User::checkSession();
