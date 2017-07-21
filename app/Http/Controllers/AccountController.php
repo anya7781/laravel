@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Category;
+use Validator;
+
 
 class AccountController extends Controller
 {
@@ -15,7 +17,7 @@ class AccountController extends Controller
     }
 
     public function enter(User $user){
-        $role = 'admin'; $id = 1;
+        $role = 'admin'; $id = 2;
         User::makeSession($role, $id);
 
         $role = User::checkSession();
@@ -30,12 +32,17 @@ class AccountController extends Controller
         else return redirect('/');
     }
 
-    public function myArticles(){
+    public function myArticles(Post $post){
+
+        $id = User::getId();
+        $posts = $post->getPostsByUserId($id);
+
+
         $role = User::checkSession();
         if ($role == 'user')
-            return view('account/user/my_articles');
+            return view('account/user/my_articles', ['posts' => $posts]);
         else if($role == 'admin')
-            return view('account/admin/my_articles');
+            return view('account/admin/my_articles', ['posts' => $posts]);
         else return redirect('/');
     }
 
@@ -54,7 +61,7 @@ class AccountController extends Controller
         $role = User::checkSession();
         if ($role == 'admin')
             return view('account/admin/new', ['categories' => $category]);
-        else if ($role = 'user')
+        else if ($role == 'user')
             return view('account/user/new', ['categories' => $category]);
         else
             return redirect('/');
@@ -112,19 +119,70 @@ class AccountController extends Controller
         return redirect('new_articles');
     }
 
-    public function editArticle(Request $request){
-
+    public function editArticle(Request $request, Post $post, Category $category){
+        $id = $request->input('id');
+        $categories = $category->getCategories();
+        $post = $post->getPost($id);
+        return view('account/admin/edit_article', ['post' => $post, 'categories' => $categories]);
     }
 
     public function blockArticle(Request $request, Post $post){
         $id = $request->input('id');
         $post->block($id);
-        return redirect('new_articles');
     }
 
     public function newArticles(Post $post){
         $posts = $post->newPosts();
-        return view('account/admin/new_articles', ['posts' => $posts]);
+        $role = User::checkSession();
+        if ($role == 'admin')
+            return view('account/admin/new_articles', ['posts' => $posts]);
+        else
+            return redirect('/');
+    }
+
+    public function updateArticle(Request $request, Post $post, Category $category)
+    {
+        $id = $request->input('id');
+        $categories = $category->getCategories();
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'text' => 'required',
+            'image' => 'image',
+        ]);
+
+        if ($validator->fails()) {
+            $posts = $post->getPost($id);
+            return view('account/admin/edit_article', ['post' => $posts, 'categories' => $categories])
+                ->withErrors($validator);
+        }
+
+
+        $image = "";
+
+        if ($request->file('image') != null) {
+            $uploaddir = '/domains/laravel_blog/public/images/uploaded/';
+            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+            move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
+            $image = 'uploaded/'.basename($_FILES['image']['name']);
+        }
+
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $text = $request->input('text');
+        $category = $request->input('category');
+
+
+        $data = array('name' => $name, 'description' => $description, 'text' => $text, 'image' => $image, 'category' => $category, 'id' => $id);
+        $post->updatePost($data);
+
+        $posts = $post->newPosts();
+
+        $role = User::checkSession();
+        if ($role == 'admin')
+            return view('account/admin/new_articles', ['posts' => $posts]);
+        else
+            return redirect('/');
     }
 
 

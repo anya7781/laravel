@@ -16,24 +16,26 @@
             </div>
         @endif
 
-        <form enctype="multipart/form-data" method="post" action="/new_article">
+
+        <form enctype="multipart/form-data" method="post" action="/update">
             {{  csrf_field() }}
             <label>Main image</label><br>
             <input name = "image" type="file"> <br><br><br>
             <label>Post's name*</label>
-            <input name = "name" type="text">
+            <input name = "name" type="text" value = "{{  $post->Name  }}">
             <label> Category </label>
                 <select class="category" name =  "category">
                     @foreach($categories as $value)
-                        <option value = "{{ $value->Name }}"> {{ $value->Name }} </option>
+                        <option value = "{{  $value->Name  }}" @if ($value == $post->category) selected @endif> {{ $value->Name }} </option>
                     @endforeach
                 </select>
             <label>Description</label>
-            <textarea name = "description"></textarea>
+            <textarea name = "description"> {{ $post->descriprion }} </textarea>
             <label>Full text*</label>
-            <textarea name = "text" rows = "20"></textarea>
+            <textarea name = "text" rows = "20"> {{$post->text}} </textarea>
             <br>
-            <button type = "submit"> Send </button>
+            <input type = "hidden" name = "id" value = "{{$post->id}}">
+            <button type = "submit"> Save </button>
         </form>
 
 

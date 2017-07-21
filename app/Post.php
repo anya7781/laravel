@@ -35,5 +35,28 @@ class Post extends Model
         $post->delete();
     }
 
+    public function getPost($id){
+        $post = $this->find($id);
+        return $post;
+    }
+
+    public function updatePost($data){
+        $post = $this->find($data['id']);
+        $post->name = $data['name'];
+        $post->description = $data['description'];
+        $post->text = $data['text'];
+        $post->photo = $data['image'];
+        $post->date = date("Y-m-d");
+        $post->id_user = 1;
+        $post->category = $data['category'];
+        $post->save();
+    }
+
+    public function getPostsByUserId($id){
+        $posts = $this->where('id_user', '=', $id)->get();
+        return $posts;
+    }
+
+
 
 }

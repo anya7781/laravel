@@ -33,6 +33,8 @@ Route::post('make-admin', 'AccountController@makeAdmin');
 
 Route::post('delete-user', 'AccountController@deleteUser');
 
-Route::any('public', 'AccountController@makePublic');
+Route::post('public', 'AccountController@makePublic');
 Route::any('edit', 'AccountController@editArticle');
-Route::any('block', 'AccountController@blockArticle');
+Route::post('block', 'AccountController@blockArticle');
+
+Route::post('update', 'AccountController@updateArticle');

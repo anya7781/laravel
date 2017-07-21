@@ -17,7 +17,9 @@ class User extends Model
     }
 
     public static function checkSession(){
-        return $_SESSION['role'];
+            if (isset($_SESSION['role']))
+                return $_SESSION['role'];
+            else return null;
     }
 
     public static function makeSession($role, $id){
