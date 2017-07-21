@@ -25,12 +25,14 @@ Route::post('new_article', 'AccountController@new_article');
 
 Route::get('my_articles', 'AccountController@myArticles');
 
-Route::get('new_articles', function () {
-    return view('account/admin/new_articles');
-});
+Route::any('new_articles', 'AccountController@newArticles');
 
 Route::get('new', 'AccountController@get_categ');
 
 Route::post('make-admin', 'AccountController@makeAdmin');
 
 Route::post('delete-user', 'AccountController@deleteUser');
+
+Route::any('public', 'AccountController@makePublic');
+Route::any('edit', 'AccountController@editArticle');
+Route::any('block', 'AccountController@blockArticle');

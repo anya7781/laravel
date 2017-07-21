@@ -15,7 +15,7 @@ class AccountController extends Controller
     }
 
     public function enter(User $user){
-        $role = 'admin'; $id = 2;
+        $role = 'admin'; $id = 1;
         User::makeSession($role, $id);
 
         $role = User::checkSession();
@@ -105,5 +105,27 @@ class AccountController extends Controller
         $user->deleteUser($id);
         return redirect('/users');
     }
+
+    public function makePublic(Request $request, Post $post){
+        $id = $request->input('id');
+        $post->publicPost($id);
+        return redirect('new_articles');
+    }
+
+    public function editArticle(Request $request){
+
+    }
+
+    public function blockArticle(Request $request, Post $post){
+        $id = $request->input('id');
+        $post->block($id);
+        return redirect('new_articles');
+    }
+
+    public function newArticles(Post $post){
+        $posts = $post->newPosts();
+        return view('account/admin/new_articles', ['posts' => $posts]);
+    }
+
 
 }

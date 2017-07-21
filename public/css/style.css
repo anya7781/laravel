@@ -978,8 +978,10 @@
 
 	.but {
 		border: 1px solid black;
+		border-radius: 10px;
 		padding: 5px;
 		text-align: center;
+		background: none;
 	}
 
 	.alert-danger{
@@ -997,4 +999,10 @@
 
 	.profile__image{
 		border-radius: 20px;
+	}
+
+	.text-overflow{
+		overflow: hidden;
+		height:120px;
+		text-overflow: ellipsis;
 	}

@@ -19,4 +19,21 @@ class Post extends Model
         $post->category = $data['category'];
         $post->save();
     }
+
+    public function newPosts(){
+        return $this->where('permission', '=', 0)->get();
+    }
+
+    public function publicPost($id){
+        $post = $this->find($id);
+        $post->permission = 1;
+        $post->save();
+    }
+
+    public function block($id){
+        $post = $this->find($id);
+        $post->delete();
+    }
+
+
 }
