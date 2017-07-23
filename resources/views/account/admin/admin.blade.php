@@ -9,7 +9,11 @@
 
         <div class="profile">
 
-            <img src="{{ asset('images/uploaded/YZUuArqfNVg.jpg') }}" width="300" height="300" class = "profile__image">
+            @if ($user->Photo != null)
+                <img src="{{ asset('images/'.$user->Photo) }}" width="300" height="300" class = "profile__image">
+            @else
+                <img src="{{ asset('images/noavatar.png') }}" width="300" height="300" class = "profile__image">
+             @endif
 
             <div>
                 <p><strong>Login:      </strong> {{  $user->login  }} </p>

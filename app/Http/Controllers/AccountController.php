@@ -89,14 +89,19 @@ class AccountController extends Controller
         $text = $request->input('text');
         $category = $request->input('category');
 
-        $data = array('name' => $name, 'description' => $description, 'text' => $text, 'image' => $image, 'category' => $category);
+        $id = User::getId();
+
+        $data = array('name' => $name, 'description' => $description, 'text' => $text, 'image' => $image, 'category' => $category,
+            'id_user' => $id);
         $post->addPost($data);
+
+        $posts = $post->getPostsByUserId($id);
 
         $role = User::checkSession();
         if ($role == 'admin')
-            return view('account/admin/my_articles', ['message' => true]);
+            return view('account/admin/my_articles', ['message' => true, 'posts' => $posts]);
         else if ($role = 'user')
-            return view('account/user/my_articles', ['message' => true]);
+            return view('account/user/my_articles', ['message' => true, 'posts' => $posts]);
         else
             return redirect('/');
     }
@@ -195,6 +200,7 @@ class AccountController extends Controller
             return view('account/user/view_article', ['post' => $posts]);
         else return redirect('/');
     }
+
 
 
 }

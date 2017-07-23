@@ -1,18 +1,11 @@
-@extends('layouts.admin_account')
+@extends('layouts.account')
 
 @section('content')
 
-<!-- Content -->
+    <!-- Content -->
     <div id="content">
+
         <div class="inner">
-
-            @if (count($posts) == 0)
-
-                <p align = "center"> List is empty. All articles are public. </p>
-
-            @else
-
-                @foreach($posts as $post)
 
                 <!-- Post -->
                     <?php
@@ -36,45 +29,30 @@
                         case '10': {$year = "Oct"; break;}
                         case '11': {$year = "Nov"; break;}
                         case '12': {$year = "Dec"; break;}
+
                     }
 
                     ?>
 
                     <article class="box post post-excerpt">
                         <header>
-                            <h2><a href="/article/{{$post->id}}">{{ $post->Name }}</a></h2>
+                            <h2>{{ $post->Name }}</h2>
                             <p>{{ $post->description }}</p>
                         </header>
                         <div class="info">
                             <span class="date"><span class="month">{{$year}}</span> <span class="day">{{$day}}</span><span class="year">, {{$year}}</span></span>
-
-                            <form method="post">
-                                <ul class="stats">
-                                    {{  csrf_field() }}
-                                    <input type = "hidden" value = "{{  $post->id }}" name="id">
-                                        <li><button formaction="public" class="but">Public</button></li>
-                                        <li><button formaction="edit" class="but edit">Edit</button></li>
-                                        <li><button formaction="block" class="but delete">Delete</button></li>
-                                </ul>
-                            </form>
-
                         </div>
 
                         @if ($post->Photo != null)
                             <a href="/article/{{$post->id}}" class="image featured"><img width="500" height="350" src="{{asset('images/'.$post->Photo)}}" alt="" /></a>
                         @endif
 
-                        <div class = "text-overflow">
+                        <div>
                             <p>  {{  $post->text  }} </p>
                         </div>
                     </article>
 
-                @endforeach
-            @endif
-
-
-
         </div>
     </div>
 
-    @endsection
+@endsection

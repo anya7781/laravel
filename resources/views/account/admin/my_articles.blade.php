@@ -50,7 +50,7 @@
 
                     <article class="box post post-excerpt">
                         <header>
-                            <h2><a href="/my_articles/{{$post->id}}">{{ $post->Name }}</a></h2>
+                            <h2><a href="/article/{{$post->id}}">{{ $post->Name }}</a></h2>
                             <p>{{ $post->description }}</p>
                         </header>
                         <div class="info">
@@ -64,7 +64,11 @@
                             </form>
 
                         </div>
-                        <a href="#" class="image featured"><img src="{{asset('images/pic01.jpg')}}" alt="" /></a>
+
+                        @if ($post->Photo != null)
+                            <a href="/article/{{$post->id}}" class="image featured"><img width="500" height="350" src="{{asset('images/'.$post->Photo)}}" alt="" /></a>
+                        @endif
+
                         <div class = "text-overflow">
                             <p>  {{  $post->text  }} </p>
                         </div>
