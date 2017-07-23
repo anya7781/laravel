@@ -2,28 +2,13 @@
 
 @section('content')
 
-<!-- Content -->
+    <!-- Content -->
     <div id="content">
-
-        @if (isset($message))
-
-            <p class="alert-danger"> Your article has been sent for checking. </p>
-
-            @endif
 
         <div class="inner">
 
-
-            @if (count($posts) == 0)
-
-                <p align = "center"> List is empty. </p>
-
-        @else
-
-            @foreach($posts as $post)
-
                 <!-- Post -->
-                <?php
+                    <?php
                     $value = $post->Date;
                     $pieces = explode("-", $value);
                     $year = $pieces[0];
@@ -70,10 +55,7 @@
                         </div>
                     </article>
 
-            @endforeach
-        @endif
-
         </div>
     </div>
 
-    @endsection
+@endsection

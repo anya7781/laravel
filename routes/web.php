@@ -23,6 +23,8 @@ Route::any('users', 'AccountController@user_list');
 
 Route::post('new_article', 'AccountController@new_article');
 
+Route::get('my_articles/{id}', 'AccountController@viewArticle');
+
 Route::get('my_articles', 'AccountController@myArticles');
 
 Route::any('new_articles', 'AccountController@newArticles');

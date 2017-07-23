@@ -17,7 +17,7 @@ class AccountController extends Controller
     }
 
     public function enter(User $user){
-        $role = 'user'; $id = 2;
+        $role = 'admin'; $id = 2;
         User::makeSession($role, $id);
 
         $role = User::checkSession();
@@ -183,6 +183,17 @@ class AccountController extends Controller
             return view('account/admin/new_articles', ['posts' => $posts]);
         else
             return redirect('/');
+    }
+
+    public function viewArticle($id, Post $post){
+       $posts = $post->getPost($id);
+
+        $role = User::checkSession();
+        if ($role == 'admin')
+            return view('account/admin/view_article', ['post' => $posts]);
+        else  if ($role == 'user')
+            return view('account/user/view_article', ['post' => $posts]);
+        else return redirect('/');
     }
 
 

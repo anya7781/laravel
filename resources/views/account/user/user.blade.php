@@ -17,7 +17,6 @@
                 <p><strong>SurName:    </strong> {{  $user->Surname  }} </p>
                 <p><strong>Email:      </strong> {{  $user->email  }} </p>
                 <p><strong>Birthday:   </strong> {{  $user->Birthday  }} </p>
-                <button> Edit </button>
             </div>
 
         </div>
