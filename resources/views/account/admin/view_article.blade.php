@@ -54,7 +54,7 @@
                             <a href="/article/{{$post->id}}" class="image featured"><img width="500" height="350" src="{{asset('images/'.$post->Photo)}}" alt="" /></a>
                         @endif
 
-                        <div class = "text-overflow">
+                        <div>
                             <p>  {{  $post->text  }} </p>
                         </div>
                     </article>

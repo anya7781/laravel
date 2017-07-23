@@ -19,7 +19,7 @@
                         <li><a href="#" class="icon fa-comment">16</a></li>
                     </ul>
                 </div>
-                <a href="#" class="image featured"><img src="{{asset('images/pic01.jpg')}}" alt="" /></a>o
+                <a href="#" class="image featured"><img width = "500" height = "300" src="{{asset('images/pic01.jpg')}}" alt="" /></a>
                 <p>
                     Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
                     or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
@@ -39,7 +39,7 @@
                         <li><a href="#" class="icon fa-comment">16</a></li>
                     </ul>
                 </div>
-                <a href="#" class="image featured"><img src = "{{asset('images/pic02.jpg')}}" alt="" /></a>
+                <a href="#" class="image featured"><img width = "500" height = "300" src = "{{asset('images/pic02.jpg')}}" alt="" /></a>
                 <p>
                     Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
                     Nunc nulla velit, fermentum quis interdum quis, tate etiam commodo lorem ipsum dolor sit amet dolore.

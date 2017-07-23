@@ -162,7 +162,6 @@ class AccountController extends Controller
                 ->withErrors($validator);
         }
 
-
         $image = "";
 
         if ($request->file('image') != null) {

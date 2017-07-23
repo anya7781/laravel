@@ -13,7 +13,8 @@ class Post extends Model
         $post->name = $data['name'];
         $post->description = $data['description'];
         $post->text = $data['text'];
-        $post->photo = $data['image'];
+        if ($data['image'] != "")
+            $post->photo = $data['image'];
         $post->date = date("Y-m-d");
         $post->id_user = $data['id_user'];
         $post->category = $data['category'];
@@ -45,7 +46,8 @@ class Post extends Model
         $post->name = $data['name'];
         $post->description = $data['description'];
         $post->text = $data['text'];
-        $post->photo = $data['image'];
+        if ($data['image'] != "")
+            $post->photo = $data['image'];
         $post->date = date("Y-m-d");
         $post->id_user = 1;
         $post->category = $data['category'];
