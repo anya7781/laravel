@@ -1,3 +1,12 @@
+<?php
+
+    use App\Category;
+
+    $category = new Category;
+    $categories = $category->getCategories();
+
+?>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -22,11 +31,11 @@
     <div id="sidebar">
 
         <!-- Logo -->
-        <h1 class="logo"><a href="#">LOGO</a></h1>
+        <h1 class="logo"><a href="/">LOGO</a></h1>
 
 
         <div class = "account">
-            <a href = "account">
+            <a href = "/account">
                 <img src =  "{{ asset('images/account1.png') }}" width="40" height="40" />
                 <p>Personal account</p>
             </a>
@@ -38,7 +47,6 @@
             <ul>
                 <li class="current"><a href="#">Latest Post</a></li>
                 <li><a href="#">Archives</a></li>
-                <li><a href="#">About Me</a></li>
                 <li><a href="#">Contact Me</a></li>
             </ul>
         </nav>
@@ -56,9 +64,9 @@
                 <h2>Categories</h2>
             </header>
             <ul>
-                <li><a href="#">1 category</a></li>
-                <li><a href="#">2 category</a></li>
-                <li><a href="#">3 category</a></li>
+                @foreach($categories as $category)
+                    <li><a href="/category/{{ $category->Name }}">{{ $category->Name }}</a></li>
+                @endforeach
             </ul>
         </section>
 

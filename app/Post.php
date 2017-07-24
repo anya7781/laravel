@@ -59,6 +59,11 @@ class Post extends Model
         return $posts;
     }
 
+    public function getPostByCategory($name){
+        $posts = $this->where('category', '=', $name)->get();
+        return $posts;
+    }
+
 
 
 }

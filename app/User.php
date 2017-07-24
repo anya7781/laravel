@@ -12,7 +12,7 @@ class User extends Model
        return $this->where('id', '=', $id)->first();
     }
 
-        public function getUsers(){
+    public function getUsers(){
         return $this->all();
     }
 

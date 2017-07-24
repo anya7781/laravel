@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 use App\User;
 use App\Post;
@@ -189,15 +190,17 @@ class AccountController extends Controller
             return redirect('/');
     }
 
-    public function viewArticle($id, Post $post){
+    public function viewArticle($id, Post $post, Comment $comment){
        $posts = $post->getPost($id);
+
+        $comments = $comment->getComments($id);
 
         $role = User::checkSession();
         if ($role == 'admin')
-            return view('account/admin/view_article', ['post' => $posts]);
+            return view('account/admin/view_article', ['post' => $posts, 'comments' => $comments]);
         else  if ($role == 'user')
-            return view('account/user/view_article', ['post' => $posts]);
-        else return redirect('/');
+            return view('account/user/view_article', ['post' => $posts, 'comments' => $comments]);
+        else return view('user/view_article', ['post' => $posts, 'comments' => $comments]);
     }
 
 

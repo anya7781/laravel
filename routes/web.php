@@ -1,19 +1,10 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::any('/', function () {
+Route::any('/', function(){
     return view('welcome');
 });
+
+/* Account routes */
 
 Route::any('exit', 'AccountController@out');
 
@@ -40,3 +31,9 @@ Route::any('edit', 'AccountController@editArticle');
 Route::post('block', 'AccountController@blockArticle');
 
 Route::post('update', 'AccountController@updateArticle');
+
+/* Main page routes */
+
+Route::get('category/{name}', 'MainController@category');
+
+Route::get('main/article/{id}', 'MainController@viewArticle');
