@@ -41,3 +41,7 @@ Route::get('main/article/{id}', 'MainController@viewArticle');
 Route::post('addComment', 'MainController@addComment');
 
 Route::get('archives', 'MainController@allPosts');
+
+Route::get('contact', function (){
+    return view('user/contact');
+});

@@ -7,6 +7,7 @@ use App\User;
 use App\Post;
 use App\Category;
 use App\Comment;
+use Validator;
 
 class MainController extends Controller
 {
@@ -26,6 +27,10 @@ class MainController extends Controller
     }
 
     public  function addComment(Request $request, Comment $comment, Post $post, User $user){
+
+        $this->validate($request, [
+            'text' => 'required',
+        ]);
 
        $text = $request->input('text');
        $user_id = $request->input('user_id');

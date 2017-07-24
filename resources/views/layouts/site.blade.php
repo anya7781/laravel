@@ -47,7 +47,7 @@
             <ul>
                 <li><a href="#">Latest Post</a></li>
                 <li><a href="/archives">Archives</a></li>
-                <li><a href="#">Contact Me</a></li>
+                <li><a href="/contact">Contact Me</a></li>
             </ul>
         </nav>
 
