@@ -38,4 +38,11 @@ class MainController extends Controller
 
        return redirect('main/article/'.$post_id);
     }
-}
+
+    public  function allPosts(Post $post){
+       $posts = $post->getAllPosts();
+       return view('user/all', ['posts' => $posts]);
+    }
+
+
+    }

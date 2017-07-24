@@ -20,4 +20,9 @@ class Comment extends Model
         $comment->id_post = $data['post_id'];
         $comment->save();
     }
+
+    public function getQuantity($id){
+        $comments = $this->where('id_post', '=', $id)->get();
+        return count($comments);
+    }
 }

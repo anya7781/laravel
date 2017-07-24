@@ -64,6 +64,10 @@ class Post extends Model
         return $posts;
     }
 
+    public function getAllPosts(){
+        return $this->where('Permission', '=', 1)->get();
+    }
+
 
 
 }
