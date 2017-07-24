@@ -45,4 +45,9 @@ class User extends Model
         $user = $this->find($id);
         $user->delete();
     }
+
+    public function getLogin($id){
+        $user = $this->where('id', '=', $id)->first();
+        return $user->login;
+    }
 }

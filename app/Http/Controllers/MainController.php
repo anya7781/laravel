@@ -24,4 +24,18 @@ class MainController extends Controller
         $role = User::checkSession();
         return view('user/view_article', ['post' => $posts, 'comments' => $comments, 'role' => $role]);
     }
+
+    public  function addComment(Request $request, Comment $comment, Post $post, User $user){
+
+       $text = $request->input('text');
+       $user_id = $request->input('user_id');
+       $post_id = $request->input('post_id');
+
+       $user_login = $user->getLogin($user_id);
+
+       $data = array('text' => $text, 'user_login' => $user_login, 'post_id' => $post_id);
+       $comment->newComment($data);
+
+       return redirect('main/article/'.$post_id);
+    }
 }

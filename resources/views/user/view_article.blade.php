@@ -56,19 +56,27 @@
                             @if (count($comments) > 0)
 
                                 @foreach($comments as $comment)
-
-                                    <p> {{ $comment->comment  }} </p>
-
+                                    <div class = "comment">
+                                        <p class = "login"> {{ $comment->login_user }} </p>
+                                        <p> {{ $comment->Comment  }} </p>
+                                    </div>
                                 @endforeach
 
                             @else
                                 <p>No comments</p>
                             @endif
 
-                            @if($role != null)
-                                
-                                <p>Add comment</p>
+                            @if($role == "user")
 
+                               <br> <h4>New comment</h4>
+
+                            <form method = "post" action = "/addComment">
+                                {{  csrf_field() }}
+                                <textarea name = "text" placeholder="Enter text of your comment" required> </textarea><br>
+                                <input type = "hidden" name = "user_id" value = "{{$post->id_user}}">
+                                <input type = "hidden" name = "post_id" value = "{{$post->id}}">
+                                <input type="submit" value = "Add comment">
+                            </form>
                             @endif
 
 

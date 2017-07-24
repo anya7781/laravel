@@ -37,3 +37,5 @@ Route::post('update', 'AccountController@updateArticle');
 Route::get('category/{name}', 'MainController@category');
 
 Route::get('main/article/{id}', 'MainController@viewArticle');
+
+Route::post('addComment', 'MainController@addComment');
