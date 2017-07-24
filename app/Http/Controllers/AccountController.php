@@ -78,7 +78,7 @@ class AccountController extends Controller
         $image = "";
 
         if ($request->file('image') != null) {
-            $uploaddir = '/domains/laravel_blog/public/images/uploaded/';
+            $uploaddir = asset('images/uploaded/');
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
             move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
             $image = 'uploaded/'.basename($_FILES['image']['name']);
@@ -165,7 +165,7 @@ class AccountController extends Controller
         $image = "";
 
         if ($request->file('image') != null) {
-            $uploaddir = '/domains/laravel_blog/public/images/uploaded/';
+            $uploaddir = asset('images/uploaded/');
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
             move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile);
             $image = 'uploaded/'.basename($_FILES['image']['name']);
