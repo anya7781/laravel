@@ -35,9 +35,9 @@
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li><a href="/" class = "my_articles"> Main page </a></li>
-                <li><a href="/account" class = "my_articles"> My profile </a></li>
-                <li><a href="/my_articles" class = "my_articles"> My acticles </a></li>
+                <li><a href="/" class = "my_articles link"> Main page </a></li>
+                <li><a href="/account" class = "my_articles link"> My profile </a></li>
+                <li><a href="/my_articles" class = "my_articles link"> My acticles </a></li>
             </ul>
         </nav>
 

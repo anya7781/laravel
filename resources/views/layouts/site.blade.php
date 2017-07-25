@@ -17,6 +17,10 @@
         <link rel="stylesheet" href = "{{ asset('css/style.css') }}" />
         <link rel="stylesheet" href = "{{ asset('css/style-desktop.css') }}" />
         <link rel="stylesheet" href = "{{ asset('css/style-wide.css') }}" />
+
+    <script src = "{{ asset('js/jquery.min.js') }}"></script>
+    <script src = "{{ asset('js/init.js') }}"></script>
+
 </head>
 
 <body class="left-sidebar">
@@ -45,9 +49,9 @@
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li  class = "current"><a href="/latest">Latest Posts</a></li>
-                <li><a href="/archives">Archives</a></li>
-                <li><a href="/contact">Contact Me</a></li>
+                <li class = "link"><a href="/">Latest Posts</a></li>
+                <li class = "link"><a href="/archives">Archives</a></li>
+                <li class = "link"><a href="/contact">Contact Me</a></li>
             </ul>
         </nav>
 
@@ -65,7 +69,7 @@
             </header>
             <ul>
                 @foreach($categories as $category)
-                    <li><a href="/category/{{ $category->Name }}">{{ $category->Name }}</a></li>
+                    <li class = "link"><a href="/category/{{ $category->Name }}">{{ $category->Name }}</a></li>
                 @endforeach
             </ul>
         </section>

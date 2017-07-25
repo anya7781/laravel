@@ -36,11 +36,11 @@
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li><a href="/" class = "my_articles"> Main page </a></li>
-                <li><a href="/account" class = "my_articles"> My profile </a></li>
-                <li><a href="/my_articles" class = "my_articles"> My articles </a></li>
-                <li><a href="/new_articles" class = "my_articles"> New articles </a></li>
-                <li><a href="/users" class = "my_articles"> User list </a></li>
+                <li><a href="/" class = "my_articles link"> Main page </a></li>
+                <li><a href="/account" class = "my_articles link"> My profile </a></li>
+                <li><a href="/my_articles" class = "my_articles link"> My articles </a></li>
+                <li><a href="/new_articles" class = "my_articles link"> New articles </a></li>
+                <li><a href="/users" class = "my_articles link"> User list </a></li>
             </ul>
         </nav>
 
