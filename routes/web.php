@@ -8,9 +8,9 @@ Route::any('exit', 'AccountController@out');
 
 Route::any('account', 'AccountController@enter');
 
-Route::any('users', 'AccountController@user_list');
+Route::any('users', 'AccountController@userList');
 
-Route::post('new_article', 'AccountController@new_article');
+Route::post('new_article', 'AccountController@newArticle');
 
 Route::get('article/{id}', 'AccountController@viewArticle');
 
@@ -18,7 +18,7 @@ Route::get('my_articles', 'AccountController@myArticles');
 
 Route::any('new_articles', 'AccountController@newArticles');
 
-Route::get('new', 'AccountController@get_categ');
+Route::get('new', 'AccountController@getCateg');
 
 Route::post('make-admin', 'AccountController@makeAdmin');
 

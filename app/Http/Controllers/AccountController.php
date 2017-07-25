@@ -18,7 +18,7 @@ class AccountController extends Controller
     }
 
     public function enter(User $user){
-        $role = 'user'; $id = 2;
+        $role = 'admin'; $id = 4;
         User::makeSession($role, $id);
 
         $role = User::checkSession();
@@ -46,7 +46,7 @@ class AccountController extends Controller
         else return redirect('/');
     }
 
-    public function user_list(User $user)
+    public function userList(User $user)
     {
         $users = $user->getUsers();
 
@@ -55,7 +55,7 @@ class AccountController extends Controller
         else return redirect('/');
     }
 
-    public function get_categ(Category $category){
+    public function getCateg(Category $category){
         $category = $category->getCategories();
 
         $role = User::checkSession();
@@ -67,7 +67,7 @@ class AccountController extends Controller
             return redirect('/');
     }
 
-    public function new_article(Request $request, Post $post)
+    public function newArticle(Request $request, Post $post)
     {
         $this->validate($request, [
             'name' => 'required|unique:posts|max:255',
