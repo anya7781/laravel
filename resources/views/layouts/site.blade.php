@@ -45,7 +45,7 @@
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li><a href="#">Latest Post</a></li>
+                <li  class = "current"><a href="/latest">Latest Posts</a></li>
                 <li><a href="/archives">Archives</a></li>
                 <li><a href="/contact">Contact Me</a></li>
             </ul>

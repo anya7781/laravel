@@ -68,6 +68,10 @@ class Post extends Model
         return $this->where('Permission', '=', 1)->get();
     }
 
+    public function getOrderedPosts(){
+        return $this->orderBy('Date', 'desc')->limit(3)->get();
+    }
+
 
 
 }

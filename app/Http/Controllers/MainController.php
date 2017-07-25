@@ -49,5 +49,9 @@ class MainController extends Controller
        return view('user/all', ['posts' => $posts]);
     }
 
-
+    public  function latest(Post $post){
+        $posts = $post->getOrderedPosts();
+        return view('user/ordered', ['posts' => $posts]);
     }
+
+}
